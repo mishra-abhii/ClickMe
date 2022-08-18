@@ -15,7 +15,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.clickme.MainActivity;
 import com.example.clickme.R;
+import com.example.clickme.UserInfoActivity;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
@@ -162,19 +164,19 @@ public class OtpVerification extends AppCompatActivity {
 
         Toast.makeText(OtpVerification.this, "Welcome", Toast.LENGTH_SHORT).show();
 
-//        Intent i;
+        Intent i;
         SharedPreferences getUserInfoStatus = getSharedPreferences("userInfo", MODE_PRIVATE);
         boolean userInfoSaved = getUserInfoStatus.getBoolean("writtenToDB", false);
 
         //If a user has entered Info once, he wont receive the UserInfo screen again.
-//        if(!userInfoSaved)
-//            i = new Intent(this, UserInfoActivity.class );
-//        else
-//            i = new Intent(this, MainActivity.class);
+        if(!userInfoSaved)
+            i = new Intent(this, UserInfoActivity.class );
+        else
+            i = new Intent(this, MainActivity.class);
 
-//        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-//        startActivity(i);
-//        finish();
+        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(i);
+        finish();
     }
 
     private void OTP_Input(EditText et1 , EditText et2) {
