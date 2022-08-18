@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/activity_otp_verification.xml" value="0.2078125" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.2078125" />
+        <entry key="app/src/main/res/layout/activity_user_info.xml" value="0.2078125" />
       </map>
     </option>
   </component>
