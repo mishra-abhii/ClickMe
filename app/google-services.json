@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "905236364001",
+    "project_id": "clickme-5be51",
+    "storage_bucket": "clickme-5be51.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:905236364001:android:7b1480f57d01d46649d5a0",
+        "android_client_info": {
+          "package_name": "com.example.clickme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "905236364001-ouautb5afe09vig0t9nbkbmfv8egmn82.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFNp3Fx3icNrACS6tIb29jnMJ_wFX9x1I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "905236364001-ouautb5afe09vig0t9nbkbmfv8egmn82.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
