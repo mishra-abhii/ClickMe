@@ -1,8 +1,18 @@
 package com.example.clickme;
 
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.NumberPicker;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 public class UserInfoActivity extends AppCompatActivity {
 
