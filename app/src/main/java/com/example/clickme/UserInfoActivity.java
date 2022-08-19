@@ -14,6 +14,9 @@ import android.widget.NumberPicker;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
 public class UserInfoActivity extends AppCompatActivity {
 
     @Override
