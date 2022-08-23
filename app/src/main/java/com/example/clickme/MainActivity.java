@@ -1,22 +1,92 @@
 package com.example.clickme;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.example.clickme.auth.SignInActivity;
+import com.example.clickme.fragments.AdminFragment;
+import com.example.clickme.fragments.MemberFragment;
+import com.example.clickme.fragments.PostFragment;
+import com.example.clickme.fragments.ProfileFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
     Boolean counter;
+    FirebaseAuth mAuth;
+
+    private BottomNavigationView bottomNav;
+    private Fragment selectedFragment;   // General Var for selected Fragment
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        SharedPreferences sharedPreferences = getSharedPreferences("logindata", MODE_PRIVATE);
+//        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new PostFragment()).commit();
+            selectedFragment = new PostFragment();
+        }
+
+        //FIND A WAY TO REPLACE THIS DEPRECATED THING!!
+
+        //Navigation bar Code
+        bottomNav =  findViewById(R.id.bottomNavigationView);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
+
     }
+
+    //NavBar Listener
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                    switch (item.getItemId()) {
+
+//                        On clicking any one, initializes selectedFragment with the corresponding fragment
+                        case R.id.home:
+                            selectedFragment = new PostFragment();
+                            setTitle("Posts");
+                            break;
+
+                        case R.id.admin:
+                            selectedFragment = new AdminFragment();
+                            setTitle("Admin");
+                            break;
+
+                        case R.id.members:
+                            selectedFragment = new MemberFragment();
+                            setTitle("Members");
+                            break;
+
+                        case R.id.profile:
+                            selectedFragment = new ProfileFragment();
+                            setTitle("Profile");
+                            break;
+                    }
+
+//                    Now depending on whichever fragment was clicked we display that *selectedFragment*
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, selectedFragment).commit();
+
+//                    True --> We want to select the clicked Item
+//                    False --> We would still show the fragment but Item WONT be selected
+                    return true;
+                }
+            };
+
 
     //========================================================================================
     // Below code is related to phone authentication part
@@ -45,6 +115,31 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, UserInfoActivity.class));
             finish();
         }
+    }
+
+
+    // code for Logout option
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.logout_menu , menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.logout) {
+            mAuth= FirebaseAuth.getInstance();
+            mAuth.signOut();
+
+            SharedPreferences sharedPreferences=getSharedPreferences("logindata",MODE_PRIVATE);
+            sharedPreferences.edit().clear().commit();
+
+            Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        return true;
     }
 
 }
