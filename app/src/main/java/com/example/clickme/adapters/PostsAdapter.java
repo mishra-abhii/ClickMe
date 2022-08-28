@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.clickme.AddNewPostActivity;
+import com.example.clickme.ImageDisplayActivity;
 import com.example.clickme.PostViewModel;
 import com.example.clickme.R;
 import com.example.clickme.models.Post;
