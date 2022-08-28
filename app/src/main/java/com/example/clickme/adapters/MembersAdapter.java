@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.clickme.Member_profile_page;
 import com.example.clickme.R;
 import com.example.clickme.models.Member;
 import com.squareup.picasso.Picasso;
