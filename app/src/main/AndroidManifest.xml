@@ -17,10 +17,10 @@
             android:name=".UserInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".OtpVerification"
+            android:name=".auth.OtpVerification"
             android:exported="false" />
         <activity
-            android:name=".SignInActivity"
+            android:name=".auth.SignInActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
