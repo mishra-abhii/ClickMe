@@ -20,6 +20,9 @@
             android:name=".AddNewPostActivity"
             android:exported="false" />
         <activity
+            android:name=".Member_profile_page"
+            android:exported="false" />
+        <activity
             android:name=".UserInfoActivity"
             android:exported="false" />
         <activity
