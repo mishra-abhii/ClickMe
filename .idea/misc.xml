@@ -12,6 +12,7 @@
         <entry key="app/src/main/res/layout/fragment_admin.xml" value="0.2078125" />
         <entry key="app/src/main/res/layout/fragment_post.xml" value="0.2078125" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layout/member_card.xml" value="0.2078125" />
         <entry key="app/src/main/res/menu/logout_menu.xml" value="0.2078125" />
       </map>
     </option>
