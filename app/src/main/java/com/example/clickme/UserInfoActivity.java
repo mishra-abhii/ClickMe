@@ -23,6 +23,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.clickme.firebase.Database;
 import com.example.clickme.models.Member;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.storage.FirebaseStorage;
@@ -146,11 +147,7 @@ public class UserInfoActivity extends AppCompatActivity {
     }
 
     private void SubmitData(){
-//
-//        SharedPreferences sharedPreferences = getSharedPreferences("logindata", MODE_PRIVATE);
-//        SharedPreferences.Editor editor = sharedPreferences.edit();
 
-//        editor.putString("imageUrl", "NULL");
         if(mImgUri != null){
 
             progressBar.setVisibility(View.VISIBLE);
@@ -177,19 +174,14 @@ public class UserInfoActivity extends AppCompatActivity {
                     editor.apply();
 
                     Toast.makeText(UserInfoActivity.this, "Submitted Successfully", Toast.LENGTH_SHORT).show();
-//                    Toast.makeText(UserInfoActivity.this, downloadUri != null ? downloadUri.toString() : "NULL", Toast.LENGTH_SHORT).show();
 
                     user = new Member(s_name, s_phone, s_weight, downloadUri.toString(), s_age , s_location);
-                    // to uncomment below 2 lines after adding Database class
-//                    Database memberDatabase = new Database();
-//                    memberDatabase.addMembers(user);
+                    Database memberDatabase = new Database();
+                    memberDatabase.addMembers(user);
 
                     resumeActivity();
 
                     Intent intent = new Intent(UserInfoActivity.this, MainActivity.class);
-//                    String uri = downloadUri.toString();
-//                    intent.putExtra("profilePicUrl", downloadUri.toString());
-
                     startActivity(intent);
                     finish();
                 }
@@ -197,14 +189,7 @@ public class UserInfoActivity extends AppCompatActivity {
         }
         else {
             Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
-//            editor.clear().apply();
         }
-
-//        editor.putString("name", s_name);
-//        editor.putString("location", s_location);
-//        editor.putString("imageUrl", user.getProfilePhotoUrl());
-//        editor.putFloat("weight", s_weight);
-//        editor.putInt("age", s_age);
     }
 
     private void enable_submit_btn() {
