@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.clickme.PostViewModel;
 import com.example.clickme.R;
 import com.example.clickme.models.Post;
 import com.squareup.picasso.Picasso;
