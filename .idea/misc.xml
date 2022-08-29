@@ -10,6 +10,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2078125" />
         <entry key="app/src/main/res/layout/activity_otp_verification.xml" value="0.2078125" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.2078125" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.2078125" />
         <entry key="app/src/main/res/layout/activity_user_info.xml" value="0.2078125" />
         <entry key="app/src/main/res/layout/fragment_admin.xml" value="0.2078125" />
         <entry key="app/src/main/res/layout/fragment_member.xml" value="0.2078125" />
